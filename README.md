@@ -18,7 +18,7 @@ To use the application, run the `pcopy.py` script from the command line, providi
 
 ## GitHub Actions Status
 
-![GitHub Actions Status](https://github.com/rydzewski-tomasz/pcopy/actions/workflows/python-app.yml/badge.svg)
+![GitHub Actions Status](https://github.com/rydzewski-tomasz/pcopy/actions/workflows/python-test.yml/badge.svg)
 
 The GitHub Actions status badge provides insight into the stability and reliability of the `pcopy` application code by indicating the outcome of the latest tests performed.
 
