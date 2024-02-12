@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import getpass
 import sys
 
@@ -34,7 +35,7 @@ def main():
         input_string = fetch_user_input("Podaj ciąg znaków (będzie traktowany jako hasło): ")
         copied_elements = extract_selected_elements(input_string, positions)
 
-        print(f"Skopiowane elementy: {copied_elements}")
+        print(f"Skopiowane elementy: \033[1m\033[91m{copied_elements}\033[0m")
     except BrokenPipeError:
         sys.stderr.close()
     except Exception as e:

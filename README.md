@@ -12,7 +12,7 @@ Pcopy is a simple console application written in Python that allows the user to 
 
 To get started with `pcopy`, clone this repository and make sure you have Python installed.
 
-Upon running the script, you will be prompted to enter a string. The copied elements will not be displayed on the screen; instead, they will be stored in the system clipboard (if you decided to implement this feature).
+Upon running the script, you will be prompted to enter a string.
 
 ## Usage Example
 
