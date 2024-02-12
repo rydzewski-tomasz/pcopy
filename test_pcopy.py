@@ -62,7 +62,7 @@ class ExtractSelectedElementsTests(unittest.TestCase):
 class ExtractCharPositionsTests(unittest.TestCase):
     def test_given_standard_format_positions_when_extracting_then_return_correct_positions_list(self):
         # Given
-        positions_str = "1|2|3"
+        positions_str = "1:2:3"
 
         # When
         result = extract_char_positions(positions_str)
@@ -92,7 +92,7 @@ class ExtractCharPositionsTests(unittest.TestCase):
 
     def test_given_invalid_input_when_extracting_then_raise_value_error(self):
         # Given
-        positions_str = "a|b|c"
+        positions_str = "a:b:c"
 
         # When / Then
         with self.assertRaises(ValueError):

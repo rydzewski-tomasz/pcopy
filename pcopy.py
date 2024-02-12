@@ -15,8 +15,11 @@ def extract_selected_elements(input_string, positions):
 
 
 def extract_char_positions(positions_str):
-    """Parsowanie ciągu indeksów podanych w formacie '2|5|8|10' na listę liczb całkowitych."""
-    return [int(pos) - 1 for pos in positions_str.split(POSITIONS_SEPARATOR)]  # indeksy zaczynają się od 1
+    """Parsowanie ciągu indeksów podanych w formacie '2:5:8:10' na listę liczb całkowitych."""
+    if positions_str == "":
+        return []
+    else:
+        return [int(pos) - 1 for pos in positions_str.split(POSITIONS_SEPARATOR)]  # indeksy zaczynają się od 1
 
 
 def main():
