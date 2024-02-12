@@ -6,17 +6,17 @@ POSITIONS_SEPARATOR = ':'
 
 
 def fetch_user_input(prompt="Password: "):
-    """Bezpieczne pobieranie ciągu znaków od użytkownika."""
+    """Securely fetching a string from the user."""
     return getpass.getpass(prompt=prompt)
 
 
 def extract_selected_elements(input_string, positions):
-    """Kopiowanie wybranych elementów z ciągu na podstawie listy indeksów."""
+    """Copying selected elements from a string based on a list of indices."""
     return ''.join(input_string[pos] for pos in positions if pos < len(input_string))
 
 
 def extract_char_positions(positions_str):
-    """Parsowanie ciągu indeksów podanych w formacie '2:5:8:10' na listę liczb całkowitych."""
+    """Parsing a string of indices provided in the format '2:5:8:10' into a list of integers."""
     if positions_str == "":
         return []
     else:
@@ -26,23 +26,22 @@ def extract_char_positions(positions_str):
 def main():
     try:
         if len(sys.argv) != 2:
-            print("Użycie: pcopy <indeksy>")
+            print("Usage: pcopy <indices>")
             sys.exit(1)
 
         positions_str = sys.argv[1]
         positions = extract_char_positions(positions_str)
 
-        input_string = fetch_user_input("Podaj ciąg znaków (będzie traktowany jako hasło): ")
+        input_string = fetch_user_input("Enter a string of characters (it will be treated as a password): ")
         copied_elements = extract_selected_elements(input_string, positions)
 
-        print(f"Skopiowane elementy: \033[1m\033[91m{copied_elements}\033[0m")
+        print(f"Copied elements: \033[1m\033[91m{copied_elements}\033[0m")
     except BrokenPipeError:
         sys.stderr.close()
     except Exception as e:
-        print(f"Wystąpił błąd: {e}", file=sys.stderr)
+        print(f"An error occurred: {e}", file=sys.stderr)
         sys.exit(1)
 
 
 if __name__ == "__main__":
     main()
-
