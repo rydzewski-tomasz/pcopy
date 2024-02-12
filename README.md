@@ -1,4 +1,4 @@
-![GitHub Actions Status](https://github.com/rydzewski-tomasz/pcopy/actions/workflows/pcopy-test.yml/badge.svg)
+![GitHub Actions Status](https://github.com/rydzewski-tomasz/pcopy/actions/workflows/tests.yml/badge.svg)
 
 # Pcopy - An Application for Copying Selected Elements of a String
 
