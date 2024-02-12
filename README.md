@@ -1,3 +1,5 @@
+![GitHub Actions Status](https://github.com/rydzewski-tomasz/pcopy/actions/workflows/pcopy-test.yml/badge.svg)
+
 # Pcopy - An Application for Copying Selected Elements of a String
 
 Pcopy is a simple console application written in Python that allows the user to safely copy selected elements from a given string. By using a password as input, users can confidently process sensitive data such as API keys or passwords without the risk of displaying them on the screen.
@@ -15,12 +17,6 @@ Upon running the script, you will be prompted to enter a string. The copied elem
 ## Usage Example
 
 To use the application, run the `pcopy.py` script from the command line, providing the indexes of elements to copy, separated by colons:
-
-## GitHub Actions Status
-
-![GitHub Actions Status](https://github.com/rydzewski-tomasz/pcopy/actions/workflows/pcopy-test.yml/badge.svg)
-
-The GitHub Actions status badge provides insight into the stability and reliability of the `pcopy` application code by indicating the outcome of the latest tests performed.
 
 ## License
 
