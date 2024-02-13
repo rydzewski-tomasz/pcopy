@@ -70,7 +70,7 @@ def main():
         extracted_elements = extract_selected_elements(input_string, positions)
         formatted_elements, formatted_positions = to_display_format(extracted_elements, positions)
 
-        # Print copied elements and their positions
+        # Print masked elements and their positions
         print("Copied elements:\033[1m\033[91m")
         print(f"{formatted_elements}\033[0m")
         print(formatted_positions)

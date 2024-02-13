@@ -1,6 +1,6 @@
 ![GitHub Actions Status](https://github.com/rydzewski-tomasz/pmask/actions/workflows/tests.yml/badge.svg)
 
-# pmask: Secure Element Copier
+# pmask: Secure Password Masking Tool
 
 ## Description
 pmask is a Python-based utility designed to securely fetch a string from the user (treated as sensitive information, such as a password) and copy selected elements from it based on a list of indices provided by the user. The program formats and displays the copied elements along with their positions, and automatically clears this information from the console after a short delay for enhanced security.
