@@ -2,7 +2,6 @@
 import getpass
 import sys
 import time
-import os
 
 POSITIONS_SEPARATOR = ':'
 
