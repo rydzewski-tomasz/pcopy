@@ -38,11 +38,26 @@ def to_display_format(extracted_string, positions):
     return formatted_string, formatted_positions_string
 
 
-def clear_last_lines_after_delay(delay=30, lines=4):
-    """Clears the last n lines from the console after a specified delay."""
-    time.sleep(delay)
-    # Move up `lines` lines, then clear to the end of the screen
-    sys.stdout.write(f"\033[{lines}A\033[J")
+def clear_last_lines_after_delay(delay=30, lines_to_clear=3):
+    """Clears the specified number of lines from the console after a countdown, showing the time left."""
+    original_lines_to_clear = lines_to_clear
+    for remaining in range(delay, -1, -1):
+        sys.stdout.write("\033[K")  # Clear the current line
+        print(f"Clearing in {remaining} seconds...")  # Display countdown
+        time.sleep(1)
+        if remaining > 0:
+            # Move cursor up one line to overwrite the countdown next loop iteration
+            sys.stdout.write("\033[1A")
+        lines_to_clear += 1  # Increment to account for the added countdown line
+
+    # Once countdown is complete, clear the lines
+    for _ in range(lines_to_clear):
+        sys.stdout.write("\033[1A")  # Move cursor up one line
+        sys.stdout.write("\033[K")  # Clear the current line
+
+    # If needed, adjust the cursor position after clearing (optional, depending on your console output requirements)
+    for _ in range(original_lines_to_clear - 1):
+        sys.stdout.write("\033[1B")  # Move cursor down to original position after clearing lines
     sys.stdout.flush()
 
 
