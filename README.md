@@ -1,4 +1,4 @@
-![GitHub Actions Status](https://github.com/rydzewski-tomasz/pcopy/actions/workflows/tests.yml/badge.svg)
+![GitHub Actions Status](https://github.com/rydzewski-tomasz/pmask/actions/workflows/tests.yml/badge.svg)
 
 # pmask: Secure Element Copier
 
