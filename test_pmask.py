@@ -1,5 +1,5 @@
 import unittest
-from pcopy import extract_selected_elements, extract_char_positions
+from pmask import extract_selected_elements, extract_char_positions
 
 
 class ExtractSelectedElementsTests(unittest.TestCase):

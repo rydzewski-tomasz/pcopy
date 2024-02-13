@@ -60,7 +60,7 @@ def clear_last_lines_after_delay(delay=30, lines_to_clear=3):
 def main():
     try:
         if len(sys.argv) != 2:
-            print("Usage: pcopy <indices>")
+            print("Usage: pmask <indices>")
             sys.exit(1)
 
         positions_str = sys.argv[1]

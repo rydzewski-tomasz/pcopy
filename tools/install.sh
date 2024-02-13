@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Define the path to the Python script and the command name
-PYTHON_SCRIPT_PATH="../pcopy.py"
-COMMAND_NAME="pcopy"
+PYTHON_SCRIPT_PATH="../pmask.py"
+COMMAND_NAME="pmask"
 TARGET_DIR=~/bin
 
 # Create the target directory if it does not exist
