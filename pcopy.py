@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import getpass
 import sys
+import time
+import os
 
 POSITIONS_SEPARATOR = ':'
 
@@ -23,6 +25,27 @@ def extract_char_positions(positions_str):
         return [int(pos) - 1 for pos in positions_str.split(POSITIONS_SEPARATOR)]  # indeksy zaczynają się od 1
 
 
+def to_display_format(extracted_string, positions):
+    """Formats each element in the extracted string to ensure it is 2 characters wide and prints positions below them."""
+    # Format extracted elements
+    formatted_elements = [f"{char:>2}" for char in extracted_string]
+    formatted_string = ''.join(formatted_elements)
+
+    # Format positions, ensuring alignment with the elements above
+    formatted_positions = [f"{pos+1:>2}" for pos in positions]  # pos+1 because positions are 0-based internally
+    formatted_positions_string = ''.join(formatted_positions)
+
+    return formatted_string, formatted_positions_string
+
+
+def clear_last_lines_after_delay(delay=30, lines=4):
+    """Clears the last n lines from the console after a specified delay."""
+    time.sleep(delay)
+    # Move up `lines` lines, then clear to the end of the screen
+    sys.stdout.write(f"\033[{lines}A\033[J")
+    sys.stdout.flush()
+
+
 def main():
     try:
         if len(sys.argv) != 2:
@@ -33,9 +56,16 @@ def main():
         positions = extract_char_positions(positions_str)
 
         input_string = fetch_user_input("Enter a string of characters (it will be treated as a password): ")
-        copied_elements = extract_selected_elements(input_string, positions)
+        extracted_elements = extract_selected_elements(input_string, positions)
+        formatted_elements, formatted_positions = to_display_format(extracted_elements, positions)
 
-        print(f"Copied elements: \033[1m\033[91m{copied_elements}\033[0m")
+        # Print copied elements and their positions
+        print("Copied elements:\033[1m\033[91m")
+        print(f"{formatted_elements}\033[0m")
+        print(formatted_positions)
+
+        # Clear the last n lines after 30 seconds
+        clear_last_lines_after_delay(30, 3)
     except BrokenPipeError:
         sys.stderr.close()
     except Exception as e:
