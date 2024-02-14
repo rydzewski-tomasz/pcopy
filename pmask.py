@@ -2,6 +2,7 @@
 import getpass
 import sys
 import time
+import signal
 
 POSITIONS_SEPARATOR = ':'
 
@@ -47,17 +48,29 @@ def clear_last_lines_after_delay(delay=30, lines_to_clear=3):
             # Move cursor up one line to overwrite the countdown next loop iteration
             sys.stdout.write("\033[1A")
 
-    # Once countdown is complete, clear the lines including the countdown line
-    for _ in range(lines_to_clear + 2):  # Include the countdown line itself in the clear
-        sys.stdout.write("\033[1A")  # Move cursor up one line
-        sys.stdout.write("\033[K")  # Clear the current line
+    clear_console_lines(lines_to_clear + 2)  # Include the countdown line itself in the clear
 
-    # Correct cursor placement: After clearing, move cursor up to the position above the first cleared line
-    # This adjustment assumes the loop above leaves the cursor below the last line it cleared
     sys.stdout.flush()
 
 
+def clear_console_lines(lines_to_clear):
+    """Clears the specified number of lines from the console."""
+    for _ in range(lines_to_clear):
+        sys.stdout.write("\033[1A")  # Move cursor up one line
+        sys.stdout.write("\033[K")  # Clear the current line
+
+
+def signal_handler(sig, frame):
+    """Handles interrupt signals such as SIGINT (Ctrl+C)."""
+    print("\nForce exit detected, clearing console...")
+    clear_console_lines(7)  # Adjust the number of lines to clear as needed
+    sys.exit(0)  # Exit the script
+
+
 def main():
+    # Register the signal handler for SIGINT
+    signal.signal(signal.SIGINT, signal_handler)
+
     try:
         if len(sys.argv) != 2:
             print("Usage: pmask <indices>")
