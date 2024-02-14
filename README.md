@@ -12,7 +12,7 @@ pmask is a Python-based utility designed to securely fetch a string from the use
 ## Installation
 To install pmask, follow these steps:
 1. Ensure you have Python 3 installed on your system.
-2. Run the installation script with `./tools/install.sh`. This script will:
+2. Run the installation script (from project root) with `./tools/install.sh`. This script will:
 3. Command should be added to `~/bin`
 4. Make sure that `~/bin` is added to $PATH
 

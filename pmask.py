@@ -18,20 +18,20 @@ def extract_selected_elements(input_string, positions):
 
 def extract_char_positions(positions_str):
     """Parsing a string of indices provided in the format '2:5:8:10' into a list of integers."""
-    if positions_str == "":
+    if positions_str == '':
         return []
     else:
-        return [int(pos) - 1 for pos in positions_str.split(POSITIONS_SEPARATOR)]  # indeksy zaczynają się od 1
+        return [int(pos) - 1 for pos in positions_str.split(POSITIONS_SEPARATOR)]  # indexes starts with 1
 
 
 def to_display_format(extracted_string, positions):
     """Formats each element in the extracted string to ensure it is 2 characters wide and prints positions below them."""
     # Format extracted elements
-    formatted_elements = [f"{char:>2}" for char in extracted_string]
+    formatted_elements = [f"{char:>5}" for char in extracted_string]
     formatted_string = ''.join(formatted_elements)
 
     # Format positions, ensuring alignment with the elements above
-    formatted_positions = [f"{pos+1:>2}" for pos in positions]  # pos+1 because positions are 0-based internally
+    formatted_positions = [f"{pos+1:>5}" for pos in positions]  # pos+1 because positions are 0-based internally
     formatted_positions_string = ''.join(formatted_positions)
 
     return formatted_string, formatted_positions_string

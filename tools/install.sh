@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the path to the Python script and the command name
-PYTHON_SCRIPT_PATH="../pmask.py"
+PYTHON_SCRIPT_PATH="./pmask.py"
 COMMAND_NAME="pmask"
 TARGET_DIR=~/bin
 
